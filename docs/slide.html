@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oria Finance no Bitcoin: Tokenização de RWA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Tema Laranja do Bitcoin */
+        .text-bitcoin { color: #f7931a; }
+        .bg-bitcoin { background-color: #f7931a; }
+        .border-bitcoin { border-color: #f7931a; }
+    </style>
+</head>
+<body class="h-screen w-screen flex flex-col">
+
+    <!-- Controlos Superiores -->
+    <header class="w-full p-4 flex justify-between items-center z-10 glass-panel fixed top-0">
+        <div class="flex items-center gap-2">
+            <i data-lucide="layers" class="text-bitcoin w-6 h-6"></i>
+            <span class="font-bold text-xl tracking-tight">ORIA <span class="text-bitcoin">FINANCE</span></span>
+        </div>
+        <div class="text-sm font-semibold text-slate-400 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
+            Projeto Final - Ecossistema Bitcoin
+        </div>
+    </header>
+
+    <!-- Contentor dos Slides -->
+    <main class="flex-1 flex justify-center items-center p-8 mt-16 relative">
+        
+        <!-- Slide 1: Capa -->
+        <section class="slide active flex-col items-center text-center max-w-4xl w-full" id="slide-1">
+            <div class="mb-8 p-6 bg-slate-800/50 rounded-full border border-slate-700/50 shadow-2xl">
+                <i data-lucide="bitcoin" class="w-24 h-24 text-bitcoin"></i>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Infraestrutura de Tokenização de <span class="text-bitcoin">RWA</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-300 mb-12 max-w-2xl font-light">
+                Adaptando a plataforma Oria Finance para operar de forma nativa no ecossistema Bitcoin.
+            </p>
+            <div class="flex gap-4">
+                <div class="px-6 py-3 glass-panel rounded-lg text-left">
+                    <p class="text-xs text-slate-400 uppercase font-semibold">Equipa</p>
+                    <p class="font-medium">Lorenzo Luiz Tavares de Souza Melo</p>
+                </div>
+                <div class="px-6 py-3 glass-panel rounded-lg text-left">
+                    <p class="text-xs text-slate-400 uppercase font-semibold">Data</p>
+                    <p class="font-medium">14 de Julho</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: O Problema -->
+        <section class="slide flex-col max-w-5xl w-full" id="slide-2">
+            <div class="flex items-center gap-4 mb-10 border-b border-slate-700 pb-4">
+                <i data-lucide="alert-triangle" class="w-8 h-8 text-bitcoin"></i>
+                <h2 class="text-3xl font-bold">1. O Problema da Iliquidez</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-8 rounded-xl">
+                    <i data-lucide="building-2" class="w-10 h-10 text-red-400 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Ativos Ilíquidos</h3>
+                    <p class="text-slate-400">O imobiliário e as propriedades municipais sofrem de profunda iliquidez, com ciclos de venda que demoram meses ou anos.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-xl">
+                    <i data-lucide="lock" class="w-10 h-10 text-red-400 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Elevadas Barreiras</h3>
+                    <p class="text-slate-400">O investimento tradicional exige grandes montantes de capital, excluindo os pequenos investidores (retalho) do mercado de capitais.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-xl">
+                    <i data-lucide="file-x-2" class="w-10 h-10 text-red-400 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Opacidade</h3>
+                    <p class="text-slate-400">Os registos prediais tradicionais e os processos burocráticos são fragmentados, propensos a erros e carecem de transparência em tempo real.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: A Solução Oria -->
+        <section class="slide flex-col max-w-5xl w-full" id="slide-3">
+            <div class="flex items-center gap-4 mb-10 border-b border-slate-700 pb-4">
+                <i data-lucide="lightbulb" class="w-8 h-8 text-bitcoin"></i>
+                <h2 class="text-3xl font-bold">2. A Proposta da Oria Finance</h2>
+            </div>
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="flex-1 space-y-6">
+                    <div class="flex gap-4 items-start">
+                        <div class="bg-blue-500/20 p-3 rounded-lg"><i data-lucide="pie-chart" class="text-blue-400"></i></div>
+                        <div>
+                            <h4 class="text-lg font-semibold">Fracionamento Digital</h4>
+                            <p class="text-slate-400 text-sm">Divisão de imóveis de elevado valor em <i>tokens</i> padronizados e acessíveis.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="bg-blue-500/20 p-3 rounded-lg"><i data-lucide="globe-2" class="text-blue-400"></i></div>
+                        <div>
+                            <h4 class="text-lg font-semibold">Acesso Global 24/7</h4>
+                            <p class="text-slate-400 text-sm">Mercados secundários sempre abertos, sem fronteiras ou fechos de bolsas.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="bg-blue-500/20 p-3 rounded-lg"><i data-lucide="check-circle-2" class="text-blue-400"></i></div>
+                        <div>
+                            <h4 class="text-lg font-semibold">Compliance Integrado</h4>
+                            <p class="text-slate-400 text-sm">Lógica de negócio e listas brancas (<i>whitelists</i>) integradas na camada do ativo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1 glass-panel p-8 rounded-2xl border-l-4 border-l-blue-500 text-center">
+                    <h3 class="text-xl font-bold mb-4">Arquitetura Atual</h3>
+                    <p class="text-slate-300 mb-4">Atualmente focada em redes com EVM/Solana devido aos contratos inteligentes nativos (Turing-completos).</p>
+                    <div class="inline-block bg-slate-800 px-4 py-2 rounded-lg text-sm text-slate-400 font-mono">
+                        Estado = Contrato Inteligente L1
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: O Desafio do Bitcoin -->
+        <section class="slide flex-col max-w-5xl w-full" id="slide-4">
+            <div class="flex items-center gap-4 mb-10 border-b border-slate-700 pb-4">
+                <i data-lucide="cpu" class="w-8 h-8 text-bitcoin"></i>
+                <h2 class="text-3xl font-bold">3. O Desafio Técnico no Bitcoin</h2>
+            </div>
+            
+            <div class="glass-panel p-8 rounded-xl mb-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/10 rounded-full blur-3xl -mr-10 -mt-10"></div>
+                <h3 class="text-2xl font-bold mb-4 text-white">Porquê que é difícil?</h3>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-3 text-lg">
+                        <i data-lucide="x-circle" class="text-red-400"></i>
+                        <span><strong class="text-white">Sem Turing-Complete:</strong> O <i>Bitcoin Script</i> não permite loops complexos ou lógica de estado global.</span>
+                    </li>
+                    <li class="flex items-center gap-3 text-lg">
+                        <i data-lucide="x-circle" class="text-red-400"></i>
+                        <span><strong class="text-white">Modelo UTXO vs. Contas:</strong> O Bitcoin foca-se na verificação de transações não gastas, não saldos de carteiras globais.</span>
+                    </li>
+                    <li class="flex items-center gap-3 text-lg">
+                        <i data-lucide="x-circle" class="text-red-400"></i>
+                        <span><strong class="text-white">Armazenamento Limitado:</strong> Dados arbitrários massivos on-chain (como detalhes de imóveis) são caros e inviáveis.</span>
+                    </li>
+                </ul>
+            </div>
+            <p class="text-center text-slate-400 text-lg">Conclusão: A tokenização de RWA exige o uso de <strong class="text-bitcoin">Protocolos de Camada 2 (Layer 2)</strong>.</p>
+        </section>
+
+        <!-- Slide 5: A Solução Bitcoin -->
+        <section class="slide flex-col max-w-5xl w-full" id="slide-5">
+            <div class="flex items-center gap-4 mb-10 border-b border-slate-700 pb-4">
+                <i data-lucide="network" class="w-8 h-8 text-bitcoin"></i>
+                <h2 class="text-3xl font-bold">4. A Arquitetura Proposta: Taproot Assets</h2>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-bitcoin">Validação <i>Client-Side</i></h3>
+                    <p class="text-slate-300 mb-6 text-lg leading-relaxed">
+                        Em vez de armazenar o estado do <i>token</i> imobiliário na cadeia principal, utilizamos o protocolo <strong class="text-white">Taproot Assets (Taro)</strong> ou o <strong class="text-white">RGB</strong>. A rede Bitcoin atua apenas como âncora de segurança (<i>state proofs</i>).
+                    </p>
+                    <ul class="space-y-3 text-slate-400">
+                        <li class="flex gap-2"><i data-lucide="check" class="text-green-400 mt-1"></i> A lógica da Oria corre <i>off-chain</i>.</li>
+                        <li class="flex gap-2"><i data-lucide="check" class="text-green-400 mt-1"></i> Integração com a <i>Lightning Network</i> para negociação secundária barata.</li>
+                        <li class="flex gap-2"><i data-lucide="check" class="text-green-400 mt-1"></i> Auditoria ancorada na segurança do L1 do Bitcoin.</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 text-center">
+                    <div class="space-y-2">
+                        <div class="bg-blue-600/30 border border-blue-500 p-3 rounded text-sm font-semibold">Camada da Aplicação Oria (UI/UX)</div>
+                        <i data-lucide="arrow-down" class="mx-auto text-slate-500"></i>
+                        <div class="bg-purple-600/30 border border-purple-500 p-3 rounded text-sm font-semibold">Lógica RWA (Validação Client-Side / RGB)</div>
+                        <i data-lucide="arrow-down" class="mx-auto text-slate-500"></i>
+                        <div class="bg-orange-600/30 border border-orange-500 p-4 rounded-lg text-lg font-bold flex items-center justify-center gap-2">
+                            <i data-lucide="bitcoin"></i> Rede Base do Bitcoin (UTXOs)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Conclusão -->
+        <section class="slide flex-col items-center text-center max-w-4xl w-full" id="slide-6">
+            <div class="mb-6 p-5 bg-green-500/20 rounded-full border border-green-500/50">
+                <i data-lucide="shield-check" class="w-16 h-16 text-green-400"></i>
+            </div>
+            <h2 class="text-4xl font-bold mb-6">Conclusão</h2>
+            <p class="text-xl text-slate-300 mb-10">
+                Migrar a infraestrutura da Oria Finance para o ecossistema Bitcoin é tecnicamente viável e altamente estratégico.
+            </p>
+            <div class="grid grid-cols-2 gap-6 w-full text-left">
+                <div class="glass-panel p-6 rounded-xl">
+                    <h4 class="text-lg font-bold text-white mb-2">Vantagem Competitiva</h4>
+                    <p class="text-slate-400 text-sm">Herdamos a liquidez trilionária, o reconhecimento de marca e a descentralização inigualável da rede Bitcoin.</p>
+                </div>
+                <div class="glass-panel p-6 rounded-xl">
+                    <h4 class="text-lg font-bold text-white mb-2">Próximos Passos</h4>
+                    <p class="text-slate-400 text-sm">Desenvolver uma Prova de Conceito (PoC) utilizando o <i>Taproot Assets daemon (tapd)</i> para emitir a primeira fração imobiliária.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Controlos Inferiores -->
+    <footer class="w-full p-6 flex justify-between items-center z-10 glass-panel fixed bottom-0">
+        <div class="flex gap-2">
+            <button onclick="prevSlide()" class="p-2 rounded-full hover:bg-slate-700 transition-colors text-slate-300 disabled:opacity-50" id="btn-prev">
+                <i data-lucide="chevron-left" class="w-6 h-6"></i>
+            </button>
+            <button onclick="nextSlide()" class="p-2 rounded-full hover:bg-slate-700 transition-colors text-slate-300" id="btn-next">
+                <i data-lucide="chevron-right" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <div class="flex gap-1" id="dots-container">
+            <!-- Os pontos (dots) são injetados via JS -->
+        </div>
+        <div class="text-slate-400 text-sm font-medium">
+            <span id="current-page">1</span> / <span id="total-pages">6</span>
+        </div>
+    </footer>
+
+    <script>
+        // Inicializar os Ícones
+        lucide.createIcons();
+
+        // Lógica dos Slides
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+        const currentPageEl = document.getElementById('current-page');
+        const totalPagesEl = document.getElementById('total-pages');
+        const dotsContainer = document.getElementById('dots-container');
+
+        totalPagesEl.textContent = totalSlides;
+
+        // Criar pontos de navegação (dots)
+        for(let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = `w-2 h-2 rounded-full transition-colors ${i === 0 ? 'bg-bitcoin' : 'bg-slate-600'}`;
+            dotsContainer.appendChild(dot);
+        }
+        const dots = dotsContainer.children;
+
+        function updateUI() {
+            // Atualizar visibilidade dos slides
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if(index === currentSlide) slide.classList.add('active');
+            });
+
+            // Atualizar o contador
+            currentPageEl.textContent = currentSlide + 1;
+
+            // Atualizar estado dos botões
+            btnPrev.disabled = currentSlide === 0;
+            btnNext.disabled = currentSlide === totalSlides - 1;
+
+            // Atualizar pontos (dots)
+            Array.from(dots).forEach((dot, index) => {
+                dot.className = `w-2 h-2 rounded-full transition-colors ${index === currentSlide ? 'bg-bitcoin' : 'bg-slate-600'}`;
+            });
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateUI();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateUI();
+            }
+        }
+
+        // Navegação pelo teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // Setup Inicial
+        updateUI();
+    </script>
+</body>
+</html>
