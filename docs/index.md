@@ -71,7 +71,7 @@ Para aplicar as regras regulatórias (como garantir que o comprador fez KYC), a 
 A verdadeira magia acontece na Camada 2. Uma vez que o token RWA da Oria Finance é ancorado num UTXO via Taproot Assets, esse ativo pode ser depositado num canal da Lightning Network. Na Lightning Network, as frações imobiliárias da Oria podem ser trocadas instantaneamente (em milissegundos) e com taxas quase nulas.
 </div>
 
-## Conclusão e Impacto
+## 5. Conclusão e Impacto
 <div align='justify'>
 Migrar a infraestrutura de RWA da Oria Finance de redes baseadas em contas para o ecossistema Bitcoin é um desafio de engenharia complexo, mas altamente compensador. Exige o abandono de contratos globais em prol do modelo UTXO e da Validação Client-Side.
 O resultado final, no entanto, é a criação de um mercado imobiliário tokenizado alicerçado na infraestrutura criptográfica mais segura, testada e descentralizada do mundo — a Camada 1 do Bitcoin. Ao mesmo tempo, atinge-se a velocidade e o baixo custo necessários para investidores de retalho utilizando os protocolos de Camada 2 e a Lightning Network.
